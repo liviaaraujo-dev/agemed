@@ -20,7 +20,17 @@ export class SignUpService {
 
         const has_password = await hash(data.password, 8);
 
-        const user = await userRepository.save({ email: data.email, password: has_password });
+        const user = await userRepository.save({ 
+            email: data.email, 
+            password: has_password, 
+            name: data.name, 
+            phoneNumber: data.phoneNumber, 
+            street: data.street, neighborhood: data.neighborhood, 
+            city: data.city, 
+            postalCode: data.postalCode, 
+            uf: data.uf,
+            numberAddress: data.numberAddress
+        });
 
         const token = sign({ id: user.id }, "secret", { expiresIn: "1d" });
 
