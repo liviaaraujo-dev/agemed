@@ -20,3 +20,10 @@ model User {
   postalCode   String
   numberAddress Int
 }
+
+model Doctor{
+  id       String @id @default(uuid())
+  name String
+  specialties String[]
+  crm String
+}
