@@ -19,6 +19,7 @@ model User {
   uf String
   postalCode   String
   numberAddress Int
+  doctors       Doctor[] 
 }
 
 model Doctor{
@@ -26,4 +27,6 @@ model Doctor{
   name String
   specialties String[]
   crm String
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String
 }
