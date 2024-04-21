@@ -16,4 +16,7 @@ router.get("/", (req: Request, res: Response) => {
 
 router.post("/sign-up", signUpController.create);
 router.post("/sign-in", signInController.signIn);
+router.get("/doctors", AuthMiddleware, doctorController.getDoctors);
 router.post("/doctor", AuthMiddleware, doctorController.create);
+router.put("/doctor/:id", AuthMiddleware, doctorController.update);
+router.delete("/doctor/:id", AuthMiddleware, doctorController.delete);

@@ -26,6 +26,7 @@ model Doctor{
   id       String @id @default(uuid())
   name String
   specialties String[]
+  phone String
   crm String
   user        User     @relation(fields: [userId], references: [id])
   userId      String
