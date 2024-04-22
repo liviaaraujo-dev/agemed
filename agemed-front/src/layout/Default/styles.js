@@ -7,9 +7,6 @@ export const Container = styled.div`
   height: 100vh;
   width: 100%vw;
   background-image: url(assets/images/bg.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; 
 `;
 
 export const SidebarContainer = styled.div`

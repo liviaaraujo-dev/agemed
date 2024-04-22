@@ -14,7 +14,7 @@ export default function Main() {
   const navigate = useNavigate();
 
   function handleLoginClick() {
-    navigate("/patient")
+    navigate("/dashboard")
   }
 
   return (
@@ -28,7 +28,6 @@ export default function Main() {
           <Input placeholder={'Insira seu e-mail'} label={'E-mail'} kind={'transparent'} />
           <Input placeholder={'Insira seu e-mail'} label={'E-mail'} kind={'transparent'} />
           <Button label={'Entrar'} onClick={() => handleLoginClick()} />
-          <Button label={'Cadastrar-se'} onClick={() => handleLoginClick()} />
         </DataContainer>
       </BodyContainer>
     </Container>

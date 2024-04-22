@@ -1,8 +1,7 @@
 import Main from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import DefaultLayout from './layout/Default'
-import Patient from "./pages/Patient";
-import Clinic from "./pages/Clinic";
 import {
   BuildingIcon,
   LibIcon,
@@ -38,7 +37,7 @@ export default function App() {
           },
           {
             label: 'Cadastrar clínica',
-            redirectTo: '/clinic',
+            redirectTo: '/office',
             icon: <BuildingIcon size={24} />
           },
         ]}
@@ -53,8 +52,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route index element={<Main />} />
-        <Route path="/patient" element={RenderPage(<Patient />, "Cadastro de pacientes")} />
-        <Route path="/clinic" element={RenderPage(<Clinic />, "Cadastro de clínicas")} />
+        <Route path="/dashboard" element={RenderPage(<Dashboard />, "Inicio")} />
       </Routes>
     </BrowserRouter>
   );

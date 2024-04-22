@@ -9,9 +9,6 @@ export const Container = styled.div`
   background-image: url(assets/images/login.png);
   flex-direction: column;
   z-index: 1;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; 
 `;
 
 export const BodyBlurContainer = styled.div`
