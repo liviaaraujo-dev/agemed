@@ -26,7 +26,7 @@ export default function Main() {
         </TitleContainer>
         <DataContainer>
           <Input placeholder={'Insira seu e-mail'} label={'E-mail'} kind={'transparent'} />
-          <Input placeholder={'Insira seu e-mail'} label={'E-mail'} kind={'transparent'} />
+          <Input placeholder={'Insira seu e-mail'} label={'Senha'} kind={'transparent'} />
           <Button label={'Entrar'} onClick={() => handleLoginClick()} />
         </DataContainer>
       </BodyContainer>
