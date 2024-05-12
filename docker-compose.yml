@@ -10,14 +10,14 @@ services:
       POSTGRES_DB: agemed
     networks:
       - agemed-net
-  frontend:
-    build:
-      context: .
-      dockerfile: ./agemed-front/Dockerfile
-    ports:
-      - "3000:3000"
-    networks:
-      - agemed-net
+  # frontend:
+  #   build:
+  #     context: .
+  #     dockerfile: ./agemed-front/Dockerfile
+  #   ports:
+  #     - "3000:3000"
+  #   networks:
+  #     - agemed-net
 
   # api:
   #   build:
