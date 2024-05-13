@@ -1,33 +1,31 @@
-/ userController.js
+name: Node.js CI
 
-const prisma = require('@prisma/client');
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
 
-async function getUsers() {
-    return await prisma.user.findMany();
-}
+jobs:
+  build-test:
 
-module.exports = { getUsers };
-javascript
-Copiar código
-// userController.test.js
+    runs-on: ubuntu-latest
 
-const { getUsers } = require('./userController');
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
 
-jest.mock('@prisma/client', () => ({
-    __esModule: true,
-    user: {
-        findMany: jest.fn().mockResolvedValue([
-            { id: 1, name: 'User 1' },
-            { id: 2, name: 'User 2' }
-        ])
-    }
-}));
-
-describe('getUsers', () => {
-    it('should return list of users', async () => {
-        const users = await getUsers();
-        expect(users).toHaveLength(2);
-        expect(users[0].name).toBe('User 1');
-        expect(users[1].name).toBe('User 2');
-    });
-});
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v4
+    - name: Configurar Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - name: Instalar dependências
+      run: npm ci
+    - name: Construir o código
+      run: npm run build --if-present
+    - name: Executar testes sem banco de dados
+      run: npm run test-without-db
