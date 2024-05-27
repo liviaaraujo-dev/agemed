@@ -2,13 +2,17 @@ FROM node:alpine
 
 WORKDIR /api
 
-COPY ./agemed-api/package*.json ./
+COPY ./package*.json ./
 
-COPY agemed-api/prisma ./prisma
+COPY /prisma ./prisma
 
-COPY agemed-api/src ./src
+COPY src ./src
+
+COPY .env .env
 
 RUN npm install
+
+RUN npm install -g prisma
 
 COPY . .
 

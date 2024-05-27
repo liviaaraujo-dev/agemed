@@ -10,28 +10,18 @@ services:
       POSTGRES_DB: agemed
     networks:
       - agemed-net
-  # frontend:
-  #   build:
-  #     context: .
-  #     dockerfile: ./agemed-front/Dockerfile
-  #   ports:
-  #     - "3000:3000"
-  #   networks:
-  #     - agemed-net
-
+      
   # api:
   #   build:
   #     context: .
-  #     dockerfile: ./agemed-api/Dockerfile
+  #     dockerfile: ./Dockerfile
   #   command: npm run dev
   #   ports:
-  #     - "3333"
-    # environment:
-    #   - PORT=3333
-    #   - SECRET_KEY=123
-    #   - DATABASE_URL=postgresql://postgres:123@db:5432/supllyflow?schema=public
-    #   - DATABASE_URL_REPLICADO=postgresql://repl_user:repl_password@db-2:5432/supllyflow2?schema=public
-
+  #     - 3333:3333
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - DATABASE_URL="postgresql://postgres:root@localhost:5434/agemed?schema=public"
 
 networks:
   agemed-net:
